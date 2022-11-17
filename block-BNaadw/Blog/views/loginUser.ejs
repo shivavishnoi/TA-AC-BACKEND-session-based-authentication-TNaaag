@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') %>
+<main>
+  <form action="/users/login" method="POST">
+    <% if(error){ %>
+    Error: <p><%= error %></p>
+    <% } %>
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" name="email" placeholder="Email..." id="email">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" placeholder="Password..." id="password">
+    </div>
+    <button type="submit">LogIn</button>
+  </form>
+</main>
+<%- include('partials/footer.ejs') %>
