@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+<main>
+  <section class="home">
+    <h4>Welcome <%= user.full_name %></h4>
+
+
+    <h2 class="punch">World's Most Loved Blogging Website</h2>
+    <a href="/articles/<%= user.id %>/list"><button>
+        Check all Articles
+      </button></a>
+    <a href="/articles/new"><button>
+        Create new Article
+      </button></a>
+  </section>
+</main>
+<%- include('partials/footer.ejs') %>
