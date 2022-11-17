@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+<main>
+  <section class="details">
+    <a href="/articles/register">⬅️</a>
+    <h2><%= article.title %></h2>
+    <p><%= article.description %></p>
+    <span>Author: <%= article.author %></span>
+    <span><%= article.likes %> people liked this article. </span>
+    <a href="#"><button>Like 🌟</button></a>
+    </div>
+    <a href="#"><button> Edit</button></a>
+    <a href="#"><button> Delete</button></a>
+    </div>
+  </section>
+  <section class="comments">Add Comment:-
+
+    <div class="add">
+      <form action="/comments/<%= article.slug %>" method="POST">
+        <textarea name="text" id="com" cols="30" rows="5" placeholder="Write your feedback here.."></textarea>
+        <input type="text" name="author" placeholder="Your Name">
+        <button type="submit">Comment</button>
+      </form>
+    </div>
+    <hr>
+    All Comments:-
+    <div class="comment-d">
+      <% article.comments.forEach((comment)=>{ %>
+      <p><%= comment.text %></p>
+      <span>By- <%= comment.author %>, </span>
+      <span>Likes: - <%= comment.likes %></span>
+      <br><br>
+      <div>
+        <a href="">Like</a>
+      </div>
+      <hr>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include('partials/footer.ejs') %>
