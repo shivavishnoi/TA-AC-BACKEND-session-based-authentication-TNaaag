@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Products</title>
+</head>
+
+<body>
+  <% if(user.isAdmin){ %>
+  <% products.forEach((pro)=>{ %>
+  <h4><%= pro.name %></h4>
+  <span><%= pro.price %>$</span>
+  <a href="#">Edit</a>
+  <a href="#">Delete</a>
+  <% }) %>
+  <% } %>
+  <% if(!user.isAdmin){ %>
+  <% products.forEach((pro)=>{ %>
+  <h4><%= pro.name %></h4>
+  <span><%= pro.price %>$</span>
+  <a href="#">Like</a>
+  <a href="#">Comment</a>
+  <a href="/products/<%= user.id %>/<%= pro.id %>">Add to cart</a>
+
+  <% }) %><a href="/products/<%= user.id %>/cart">show cart</a>
+  <% } %>
+
+  <a href="/logout">Logout</a>
+</body>
+
+</html>
